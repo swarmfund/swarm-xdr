@@ -34,7 +34,8 @@ enum LedgerVersion {
 	EMPTY_VERSION = 0,
 	PASS_EXTERNAL_SYS_ACC_ID_IN_CREATE_ACC = 1,
 	DETAILED_LEDGER_CHANGES = 2, // write all ledger changes to transaction meta in txhistory
-	NEW_SIGNER_TYPES = 3 // use more comprehensive list of signer types
+	NEW_SIGNER_TYPES = 3, // use more comprehensive list of signer types
+	ALLOW_TO_MANAGE_SALE = 4 // allow to block sale, delete sale
 };
 
 // variable size as the size depends on the signature scheme used
@@ -110,7 +111,8 @@ enum OperationType
     MANAGE_INVOICE = 17,
 	REVIEW_REQUEST = 18,
 	CREATE_SALE_REQUEST = 19,
-	CHECK_SALE_STATE = 20
+	CHECK_SALE_STATE = 20,
+	MANAGE_SALE = 21
 };
 
 struct DecoratedSignature

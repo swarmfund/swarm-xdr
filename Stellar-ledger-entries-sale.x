@@ -20,6 +20,12 @@ struct SaleQuoteAsset {
     ext;
 };
 
+enum SaleState
+{
+    ACTIVE = 1,
+    BLOCKED = 2
+};
+
 struct SaleEntry
 {
 	uint64 saleID;
@@ -39,6 +45,8 @@ struct SaleEntry
     {
     case EMPTY_VERSION:
         void;
+    case ALLOW_TO_MANAGE_SALE:
+        SaleState state;
     }
     ext;
 };
