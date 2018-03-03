@@ -101,9 +101,20 @@ struct ClaimOfferAtom
     ext;
 };
 
+struct OfferTotalAmount {
+    int64 baseAmount;
+	int64 quoteAmount;
+
+	union switch (LedgerVersion v)
+    {
+    case EMPTY_VERSION:
+        void;
+    }
+    ext;
+};
+
 struct ManageOfferSuccessResult
 {
-
     // offers that got claimed while creating this offer
     ClaimOfferAtom offersClaimed<>;
 	AssetCode baseAsset;
@@ -114,6 +125,8 @@ struct ManageOfferSuccessResult
     case CREATED:
     case UPDATED:
         OfferEntry offer;
+    case DELETED:
+        OfferTotalAmount totalAmount;
     default:
         void;
     }
