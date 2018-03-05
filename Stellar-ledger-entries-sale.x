@@ -86,8 +86,8 @@ struct SaleEntry
 	case TYPED_SALE:
 		SaleTypeExt saleTypeExt;
     case ALLOW_TO_MANAGE_SALE:
-        {
-        SaleStateExt state;
+       struct {
+        SaleState state;
         SaleTypeExt saleTypeExt;
         }saleStates;
     }
