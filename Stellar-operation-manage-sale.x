@@ -40,7 +40,9 @@ enum ManageSaleResultCode
 {
     SUCCESS = 0,
 
-    NOT_FOUND = -1 // sale not found
+    NOT_FOUND = -1, // sale not found
+    ALREADY_BLOCKED = -2, // when we try to block blocked sale
+    ALREADY_UNBLOCKED = -3 // when we try to unblock active sale
 };
 
 struct ManageSaleResultSuccess
