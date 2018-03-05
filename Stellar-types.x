@@ -33,9 +33,13 @@ case KEY_TYPE_ED25519:
 enum LedgerVersion {
 	EMPTY_VERSION = 0,
 	PASS_EXTERNAL_SYS_ACC_ID_IN_CREATE_ACC = 1,
-	DETAILED_LEDGER_CHANGES = 2, // write all ledger changes to transaction meta in txhistory
+	DETAILED_LEDGER_CHANGES = 2, // write more all ledger changes to transaction meta
 	NEW_SIGNER_TYPES = 3, // use more comprehensive list of signer types
-	ALLOW_TO_MANAGE_SALE = 4 // allow to block sale, delete sale
+	TYPED_SALE = 4, // sales can have type
+	UNIQUE_BALANCE_CREATION = 5, // allows to specify in manage balance that balance should not be created if one for such asset and account exists
+	ASSET_PREISSUER_MIGRATION = 6,
+	ASSET_PREISSUER_MIGRATED = 7,
+	ALLOW_TO_MANAGE_SALE = 8 // allow to block sale, delete sale
 };
 
 // variable size as the size depends on the signature scheme used
