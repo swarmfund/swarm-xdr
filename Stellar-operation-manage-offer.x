@@ -44,31 +44,30 @@ enum ManageOfferResultCode
     SUCCESS = 0,
 
     // codes considered as "failure" for the operation
-    MALFORMED = -1,     // generated offer would be invalid
-    PAIR_NOT_TRADED = -2, // it's not allowed to trage with this pair
-    BALANCE_NOT_FOUND = -3,  // does not own balance for buying or selling
-    UNDERFUNDED = -4,    // doesn't hold what it's trying to sell
-    CROSS_SELF = -5,     // would cross an offer from the same user
-	OFFER_OVERFLOW = -6,
-	ASSET_PAIR_NOT_TRADABLE = -7,
+    MALFORMED = -1,
+    PAIR_NOT_TRADED = -2,
+    BALANCE_NOT_FOUND = -3, // base or quote asset balance doesn't exist
+    UNDERFUNDED = -4, // has not enough asset that's supposed to be sold
+    CROSS_SELF = -5, // the account creating this offer would immediately cross itself
+	OFFER_OVERFLOW = -6, // fee or quote amount overflows UINT64_MAX
+	ASSET_PAIR_NOT_TRADABLE = -7, // it's not allowed to trade this asset pair
 	PHYSICAL_PRICE_RESTRICTION = -8, // offer price violates physical price restriction
 	CURRENT_PRICE_RESTRICTION = -9,
-    NOT_FOUND = -10, // offerID does not match an existing offer
+    OFFER_NOT_FOUND = -10, // offer doesn't exist
     INVALID_PERCENT_FEE = -11,
 	INSUFFICIENT_PRICE = -12,
-	ORDER_BOOK_DOES_NOT_EXISTS = -13, // specified order book does not exists
+	ORDER_BOOK_DOES_NOT_EXIST = -13, // specified order book does not exist
 	SALE_IS_NOT_STARTED_YET = -14, // sale is not started yet
 	SALE_ALREADY_ENDED = -15, // sale has already ended
-	ORDER_VIOLATES_HARD_CAP = -16, // currentcap + order will exceed hard cap
-	CANT_PARTICIPATE_OWN_SALE = -17, // it's not allowed to participate in own sale
+	ORDER_EXCEEDS_HARD_CAP = -16, // currentcap + order will exceed hard cap
+	CANNOT_PARTICIPATE_OWN_SALE = -17, // it's not allowed to participate in own sale
 	ASSET_MISMATCHED = -18, // sale assets does not match assets for specified balances
-	PRICE_DOES_NOT_MATCH = -19, // price does not match sale price
-	PRICE_IS_INVALID = -20, // price must be positive
-	UPDATE_IS_NOT_ALLOWED = -21, // update of the offer is not allowed
+	PRICE_MISMATCHED = -19, // price does not match sale price
+	INVALID_PRICE = -20, // price must be positive
+	OFFER_UPDATE_IS_NOT_ALLOWED = -21, // update of the offer is not allowed
 	INVALID_AMOUNT = -22, // amount must be positive 
 	SALE_IS_NOT_ACTIVE = -23,
 	REQUIRES_KYC = -24 // source must have KYC in order to participate
-
 };
 
 enum ManageOfferEffect
