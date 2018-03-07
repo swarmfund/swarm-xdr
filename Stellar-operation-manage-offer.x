@@ -67,7 +67,8 @@ enum ManageOfferResultCode
 	OFFER_UPDATE_IS_NOT_ALLOWED = -21, // update of the offer is not allowed
 	INVALID_AMOUNT = -22, // amount must be positive 
 	SALE_IS_NOT_ACTIVE = -23,
-	REQUIRES_KYC = -24 // source must have KYC in order to participate
+	REQUIRES_KYC = -24, // source must have KYC in order to participate
+	REQUIRES_IS_BUY = -25 //offers, related to sales must have isBuy set to true
 };
 
 enum ManageOfferEffect
