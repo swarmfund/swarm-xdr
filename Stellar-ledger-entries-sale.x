@@ -4,13 +4,12 @@
 
 %#include "xdr/Stellar-types.h"
 
-namespace stellar
-{
+namespace stellar{
 
 enum SaleType {
 	BASIC_SALE = 1, // sale creator specifies price for each quote asset
 	CROWD_FUNDING = 2 // sale creator does not specify price,
-	                  // price is defined on sale close based on amount of base asset to be sold and amount of quote assets collected
+	                  //price is defined on sale close based on amount of base asset to be sold and amount of quote assets collected
 };
 
 struct CrowdFundingSale {
@@ -89,7 +88,7 @@ struct SaleEntry
        struct {
         SaleState state;
         SaleTypeExt saleTypeExt;
-        }saleStates;
+        } saleStates;
     }
     ext;
 };
