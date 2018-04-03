@@ -30,7 +30,11 @@ enum SignerType
 	USER_ISSUANCE_MANAGER = 262144, // can review pre-issuance/issuance requests
 	WITHDRAW_MANAGER = 524288, // can review withdraw requests
 	FEES_MANAGER = 1048576, // can set fee
-	TX_SENDER = 2097152 // can send tx
+	TX_SENDER = 2097152, // can send tx
+    AML_ALERT_MANAGER = 4194304, // can manage AML alert request
+    AML_ALERT_REVIEWER = 8388608, // can review aml alert requests
+	KYC_ACC_MANAGER = 16777216, // can manage kyc
+	KYC_SUPER_ADMIN = 33554432
 };
 
 struct Signer
@@ -103,7 +107,8 @@ enum BlockReasons
 {
 	RECOVERY_REQUEST = 1,
 	KYC_UPDATE = 2,
-	SUSPICIOUS_BEHAVIOR = 4
+	SUSPICIOUS_BEHAVIOR = 4,
+	TOO_MANY_KYC_UPDATE_REQUESTS = 8
 };
 
 
@@ -141,7 +146,10 @@ struct AccountEntry
     {
     case EMPTY_VERSION:
         void;
+	case USE_KYC_LEVEL:
+		uint32 kycLevel;
     }
+	
     ext;
 };
 
