@@ -40,7 +40,9 @@ enum LedgerVersion {
 	ASSET_PREISSUER_MIGRATION = 6,
 	ASSET_PREISSUER_MIGRATED = 7,
 	USE_KYC_LEVEL = 8,
-	ALLOW_UPDATE_OFFERS = 9
+	ERROR_ON_NON_ZERO_TASKS_TO_REMOVE_IN_REJECT_KYC = 9,
+	ALLOW_ACCOUNT_MANAGER_TO_CHANGE_KYC = 10,
+	ALLOW_UPDATE_OFFERS = 11
 };
 
 // variable size as the size depends on the signature scheme used
