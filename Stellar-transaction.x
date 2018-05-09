@@ -23,6 +23,9 @@
 %#include "xdr/Stellar-operation-create-sale-creation-request.h"
 %#include "xdr/Stellar-operation-check-sale-state.h"
 %#include "xdr/Stellar-operation-manage-sale.h"
+%#include "xdr/Stellar-operation-create-AML-alert-request.h"
+%#include "xdr/Stellar-operation-create-KYC-request.h"
+%#include "xdr/Stellar-operation-payment-v2.h"
 
 namespace stellar
 {
@@ -76,6 +79,12 @@ struct Operation
 		CreateSaleCreationRequestOp createSaleCreationRequestOp;
 	case CHECK_SALE_STATE:
 		CheckSaleStateOp checkSaleStateOp;
+    case CREATE_AML_ALERT:
+        CreateAMLAlertRequestOp createAMLAlertRequestOp;
+    case CREATE_KYC_REQUEST:
+        CreateUpdateKYCRequestOp createUpdateKYCRequestOp;
+    case PAYMENT_V2:
+        PaymentOpV2 paymentOpV2;
 	case MANAGE_SALE:
 	    ManageSaleOp manageSaleOp;
     }
@@ -208,6 +217,12 @@ case opINNER:
 		CreateSaleCreationRequestResult createSaleCreationRequestResult;
 	case CHECK_SALE_STATE:
 		CheckSaleStateResult checkSaleStateResult;
+    case CREATE_AML_ALERT:
+        CreateAMLAlertRequestResult createAMLAlertRequestResult;
+    case CREATE_KYC_REQUEST:
+        CreateUpdateKYCRequestResult createUpdateKYCRequestResult;
+    case PAYMENT_V2:
+        PaymentV2Result paymentV2Result;
 	case MANAGE_SALE:
 	    ManageSaleResult manageSaleResult;
     }

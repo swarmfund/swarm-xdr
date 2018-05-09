@@ -39,7 +39,16 @@ enum LedgerVersion {
 	UNIQUE_BALANCE_CREATION = 5, // allows to specify in manage balance that balance should not be created if one for such asset and account exists
 	ASSET_PREISSUER_MIGRATION = 6,
 	ASSET_PREISSUER_MIGRATED = 7,
-	ALLOW_TO_MANAGE_SALE = 8 // allow to block sale, delete sale
+	USE_KYC_LEVEL = 8,
+	ERROR_ON_NON_ZERO_TASKS_TO_REMOVE_IN_REJECT_KYC = 9,
+	ALLOW_ACCOUNT_MANAGER_TO_CHANGE_KYC = 10,
+	CHANGE_ASSET_ISSUER_BAD_AUTH_EXTRA_FIXED = 11,
+	AUTO_CREATE_COMMISSION_BALANCE_ON_TRANSFER = 12,
+    ALLOW_REJECT_REQUEST_OF_BLOCKED_REQUESTOR = 13,
+	ASSET_UPDATE_CHECK_REFERENCE_EXISTS = 14,
+	CROSS_ASSET_FEE = 15,
+	USE_PAYMENT_V2 = 16,
+	ALLOW_TO_MANAGE_SALE = 17 // allow to block sale, delete sale
 };
 
 // variable size as the size depends on the signature scheme used
@@ -116,7 +125,10 @@ enum OperationType
 	REVIEW_REQUEST = 18,
 	CREATE_SALE_REQUEST = 19,
 	CHECK_SALE_STATE = 20,
-	MANAGE_SALE = 21
+    CREATE_AML_ALERT = 21,
+    CREATE_KYC_REQUEST = 22,
+    PAYMENT_V2 = 23,
+    MANAGE_SALE = 24
 };
 
 struct DecoratedSignature
