@@ -131,7 +131,8 @@ enum OperationType
     PAYMENT_V2 = 23,
     MANAGE_EXTERNAL_SYSTEM_ACCOUNT_ID_POOL_ENTRY = 24,
     BIND_EXTERNAL_SYSTEM_ACCOUNT_ID = 25,
-    MANAGE_SALE = 26
+    MANAGE_SALE = 26,
+    SET_ENTITY_TYPE = 27
 };
 
 struct DecoratedSignature

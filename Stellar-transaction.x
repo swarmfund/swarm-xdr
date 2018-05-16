@@ -28,6 +28,7 @@
 %#include "xdr/Stellar-operation-bind-external-system-id.h"
 %#include "xdr/Stellar-operation-payment-v2.h"
 %#include "xdr/Stellar-operation-manage-sale.h"
+%#include "xdr/Stellar-operation-set-entity-type.h"
 
 
 namespace stellar
@@ -94,6 +95,8 @@ struct Operation
         PaymentOpV2 paymentOpV2;
     case MANAGE_SALE:
         ManageSaleOp manageSaleOp;
+    case SET_ENTITY_TYPE:
+        SetEntityTypeOp setEntityTypeOp;
     }
     body;
 };
@@ -236,6 +239,8 @@ case opINNER:
         PaymentV2Result paymentV2Result;
     case MANAGE_SALE:
         ManageSaleResult manageSaleResult;
+    case SET_ENTITY_TYPE:
+        SetEntityTypeResult setEntityTypeResult;
     }
     tr;
 default:
