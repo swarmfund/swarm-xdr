@@ -66,7 +66,7 @@ struct LedgerHeader
 
     ExternalSystemIDGeneratorType externalSystemIDGenerators<>;
     int64 txExpirationPeriod;
-    
+
     Hash skipList[4]; // hashes of ledgers in the past. allows you to jump back
                       // in time without walking the chain back ledger by ledger
                       // each slot contains the oldest ledger that is mod of
@@ -297,6 +297,17 @@ case EXTERNAL_SYSTEM_ACCOUNT_ID_POOL_ENTRY:
 		}
 		ext;
 	} externalSystemAccountIDPoolEntry;
+case ENTITY_TYPE:
+    struct {
+        uint64 id;
+        EntityType type;
+        union switch(LedgerVersion v)
+        {
+        case EMPTY_VERSION:
+            void;
+        }
+        ext;
+    } entityType;
 };
 
 enum BucketEntryType

@@ -35,7 +35,8 @@ enum SignerType
     AML_ALERT_REVIEWER = 8388608, // can review aml alert requests
 	KYC_ACC_MANAGER = 16777216, // can manage kyc
 	KYC_SUPER_ADMIN = 33554432,
-	EXTERNAL_SYSTEM_ACCOUNT_ID_POOL_MANAGER = 67108864
+	EXTERNAL_SYSTEM_ACCOUNT_ID_POOL_MANAGER = 67108864,
+    ENTITY_TYPE_MANAGER = 134217728
 };
 
 struct Signer
@@ -84,7 +85,7 @@ struct Limits
         void;
     }
     ext;
-    
+
 };
 
 enum AccountPolicies
@@ -95,7 +96,7 @@ enum AccountPolicies
 
 enum AccountType
 {
-	OPERATIONAL = 1,       // operational account of the system 
+	OPERATIONAL = 1,       // operational account of the system
 	GENERAL = 2,           // general account can perform payments, setoptions, be source account for tx, etc.
 	COMMISSION = 3,        // commission account
 	MASTER = 4,            // master account
@@ -136,7 +137,7 @@ struct AccountEntry
 
 	uint32 blockReasons;
     AccountType accountType; // type of the account
-    
+
     // Referral marketing
     AccountID* referrer;     // parent account
 
@@ -150,7 +151,7 @@ struct AccountEntry
 	case USE_KYC_LEVEL:
 		uint32 kycLevel;
     }
-	
+
     ext;
 };
 
